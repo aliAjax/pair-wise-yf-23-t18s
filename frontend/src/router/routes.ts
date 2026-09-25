@@ -4,6 +4,10 @@ export const routes = [
     "route": "/fixtures"
   },
   {
+    "name": "配电方案",
+    "route": "/power"
+  },
+  {
     "name": "场景编辑",
     "route": "/cues"
   },

@@ -4,6 +4,7 @@ import { routes } from "./router/routes";
 import { mockData } from "./mocks/seedData";
 import { StatusBadge } from "./components/common/StatusBadge";
 import { StatCard } from "./components/common/StatCard";
+import { PowerDistributionPage } from "./pages/PowerDistributionPage";
 import "./styles.css";
 
 function Page({ name }: { name: string }) {
@@ -20,7 +21,7 @@ function Page({ name }: { name: string }) {
     <section className="metrics">
       <StatCard label="核心模型" value={entities.length} />
       <StatCard label="本地记录" value={total} />
-      <StatCard label="共享枚举" value={3} />
+      <StatCard label="共享枚举" value={5} />
     </section>
     <section className="workbench">
       <div className="panel wide">
@@ -47,7 +48,7 @@ function App() {
       <div className="brand">舞台灯光编排模拟器</div>
       <nav>{routes.map((route) => <button key={route.route} className={active === route.route ? "active" : ""} onClick={() => setActive(route.route)}>{route.name}</button>)}</nav>
     </aside>
-    <Page name={current?.name ?? "工作台"} />
+    {current?.route === "/power" ? <PowerDistributionPage /> : <Page name={current?.name ?? "工作台"} />}
   </div>;
 }
 
