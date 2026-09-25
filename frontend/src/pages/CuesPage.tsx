@@ -1,3 +1,3 @@
 export function CuesPage() {
-  return <section>场景编辑</section>;
+  return <main className="page"><section className="page-head"><h1>场景编辑</h1></section></main>;
 }

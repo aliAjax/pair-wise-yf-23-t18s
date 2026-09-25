@@ -1,6 +1,6 @@
 # 舞台灯光编排模拟器
 
-纯前端舞台灯光编排工具，支持灯具通道、场景 Cue、时间轴预览和演出方案导出，所有数据存在 IndexedDB。
+纯前端舞台灯光编排工具，支持灯具通道、场景 Cue、时间轴预览、配电方案与演出快照，所有数据存在 IndexedDB。
 
 ## 快速启动
 
@@ -17,8 +17,18 @@ cp .env.example .env && docker compose up -d
 ## 本地开发方式
 
 - 前端：`cd frontend && npm install && npm run dev`
+- 配电规则校验：`cd frontend && npm run verify`（回路拦截/负载差门禁/快照冻结的自动化断言）
 
 
+
+## 配电方案页（/power）
+
+装台换场时给每盏灯登记功率和所属回路，回路记录额定安培、相位与检修状态：
+
+- **变更拦截**：调整挂接、功率或回路参数后，只要出现回路超载或灯具接到检修回路，本次变更立即被拦截，方案保持上一版可用状态。
+- **恢复最近可用方案**：每次成功变更都会把上一版可用方案压入历史（最多 20 版），可一键恢复。
+- **发布门禁**：各相位负载差（(最重相 − 最轻相) / 最重相）超过两成（20%）时，不能发布演出快照。
+- **快照冻结**：发布时深拷贝当前灯具挂接与回路配置，之后的灯具调整不影响已发布快照。
 
 ## 技术栈
 
@@ -53,6 +63,9 @@ frontend/src/api, stores, types, constants, constructors, components/common, hoo
 - FixtureType: constants/FixtureType、types/FixtureType、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - CueStatus: constants/CueStatus、types/CueStatus、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - ChannelMode: constants/ChannelMode、types/ChannelMode、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
+- Phase: constants/Phase、types/Phase、utils/powerPlan、constructors/ShowSnapshotConstructor、stores/PowerDistributionStore、pages/PowerDistributionPage、components/common/PhaseLoadBar 均有引用。
+- MaintenanceStatus: constants/MaintenanceStatus、types/MaintenanceStatus、utils/powerPlan、stores/PowerDistributionStore、pages/PowerDistributionPage、constants/statusText 均有引用。
+- 配电阈值/电压: constants/PowerConfig（SUPPLY_VOLTAGE_V、PHASE_IMBALANCE_TOLERANCE、MAX_USABLE_PLAN_HISTORY），被 utils/powerPlan、stores/PowerDistributionStore、pages/PowerDistributionPage 引用。
 
 ## 为什么会牵一发动全身
 

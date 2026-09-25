@@ -7,4 +7,6 @@ export interface Fixture {
   dmx_address: string;
   channel_count: number;
   color_mode: string;
+  power_watt: number;
+  circuit_id: number | null;
 }

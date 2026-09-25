@@ -2,33 +2,175 @@ export const mockData = {
   "fixture": [
     {
       "id": 1,
-      "fixture_code": "fixture code 1",
-      "fixture_type": "SPOT",
-      "position_x": "position x 1",
-      "position_y": "position y 1",
-      "dmx_address": "dmx address 1",
-      "channel_count": "channel count 1",
-      "color_mode": "color mode 1"
+      "fixture_code": "PAR-01",
+      "fixture_type": "PAR",
+      "position_x": "2.0",
+      "position_y": "4.5",
+      "dmx_address": "A001",
+      "channel_count": 4,
+      "color_mode": "RGBW",
+      "power_watt": 1000,
+      "circuit_id": 1
     },
     {
       "id": 2,
-      "fixture_code": "fixture code 2",
-      "fixture_type": "WASH",
-      "position_x": "position x 2",
-      "position_y": "position y 2",
-      "dmx_address": "dmx address 2",
-      "channel_count": "channel count 2",
-      "color_mode": "color mode 2"
+      "fixture_code": "PAR-02",
+      "fixture_type": "PAR",
+      "position_x": "4.0",
+      "position_y": "4.5",
+      "dmx_address": "A005",
+      "channel_count": 4,
+      "color_mode": "RGBW",
+      "power_watt": 1000,
+      "circuit_id": 1
     },
     {
       "id": 3,
-      "fixture_code": "fixture code 3",
+      "fixture_code": "SPT-01",
+      "fixture_type": "SPOT",
+      "position_x": "6.0",
+      "position_y": "4.5",
+      "dmx_address": "A009",
+      "channel_count": 8,
+      "color_mode": "MOVING_HEAD",
+      "power_watt": 750,
+      "circuit_id": 2
+    },
+    {
+      "id": 4,
+      "fixture_code": "WSH-01",
+      "fixture_type": "WASH",
+      "position_x": "8.0",
+      "position_y": "4.5",
+      "dmx_address": "A017",
+      "channel_count": 6,
+      "color_mode": "RGBW",
+      "power_watt": 1200,
+      "circuit_id": 3
+    },
+    {
+      "id": 5,
+      "fixture_code": "BEM-01",
       "fixture_type": "BEAM",
-      "position_x": "position x 3",
-      "position_y": "position y 3",
-      "dmx_address": "dmx address 3",
-      "channel_count": "channel count 3",
-      "color_mode": "color mode 3"
+      "position_x": "10.0",
+      "position_y": "4.5",
+      "dmx_address": "A023",
+      "channel_count": 16,
+      "color_mode": "MOVING_HEAD",
+      "power_watt": 1500,
+      "circuit_id": 4
+    },
+    {
+      "id": 6,
+      "fixture_code": "WSH-02",
+      "fixture_type": "WASH",
+      "position_x": "12.0",
+      "position_y": "4.5",
+      "dmx_address": "A039",
+      "channel_count": 6,
+      "color_mode": "RGBW",
+      "power_watt": 1200,
+      "circuit_id": 5
+    },
+    {
+      "id": 7,
+      "fixture_code": "PAR-03",
+      "fixture_type": "PAR",
+      "position_x": "14.0",
+      "position_y": "4.5",
+      "dmx_address": "A045",
+      "channel_count": 4,
+      "color_mode": "RGB",
+      "power_watt": 1200,
+      "circuit_id": 5
+    },
+    {
+      "id": 8,
+      "fixture_code": "STB-01",
+      "fixture_type": "STROBE",
+      "position_x": "16.0",
+      "position_y": "4.5",
+      "dmx_address": "A049",
+      "channel_count": 3,
+      "color_mode": "DIMMER_ONLY",
+      "power_watt": 800,
+      "circuit_id": null
+    }
+  ],
+  "powerCircuit": [
+    {
+      "id": 1,
+      "circuit_code": "C1",
+      "phase": "L1",
+      "rated_amp": 16,
+      "maintenance_status": "NORMAL"
+    },
+    {
+      "id": 2,
+      "circuit_code": "C2",
+      "phase": "L1",
+      "rated_amp": 16,
+      "maintenance_status": "NORMAL"
+    },
+    {
+      "id": 3,
+      "circuit_code": "C3",
+      "phase": "L2",
+      "rated_amp": 16,
+      "maintenance_status": "NORMAL"
+    },
+    {
+      "id": 4,
+      "circuit_code": "C4",
+      "phase": "L2",
+      "rated_amp": 32,
+      "maintenance_status": "NORMAL"
+    },
+    {
+      "id": 5,
+      "circuit_code": "C5",
+      "phase": "L3",
+      "rated_amp": 16,
+      "maintenance_status": "NORMAL"
+    },
+    {
+      "id": 6,
+      "circuit_code": "C6",
+      "phase": "L3",
+      "rated_amp": 16,
+      "maintenance_status": "MAINTENANCE"
+    }
+  ],
+  "showSnapshot": [
+    {
+      "id": 1,
+      "title": "首演夜配电快照",
+      "published_at": "2026-09-20T19:30:00Z",
+      "hookups": [
+        { "fixture_id": 1, "fixture_code": "PAR-01", "power_watt": 1000, "circuit_id": 1, "circuit_code": "C1", "phase": "L1" },
+        { "fixture_id": 2, "fixture_code": "PAR-02", "power_watt": 1000, "circuit_id": 1, "circuit_code": "C1", "phase": "L1" },
+        { "fixture_id": 3, "fixture_code": "SPT-01", "power_watt": 750, "circuit_id": 2, "circuit_code": "C2", "phase": "L1" },
+        { "fixture_id": 4, "fixture_code": "WSH-01", "power_watt": 1200, "circuit_id": 3, "circuit_code": "C3", "phase": "L2" },
+        { "fixture_id": 5, "fixture_code": "BEM-01", "power_watt": 1500, "circuit_id": 4, "circuit_code": "C4", "phase": "L2" },
+        { "fixture_id": 6, "fixture_code": "WSH-02", "power_watt": 1200, "circuit_id": 5, "circuit_code": "C5", "phase": "L3" },
+        { "fixture_id": 7, "fixture_code": "PAR-03", "power_watt": 1200, "circuit_id": 5, "circuit_code": "C5", "phase": "L3" },
+        { "fixture_id": 8, "fixture_code": "STB-01", "power_watt": 800, "circuit_id": 6, "circuit_code": "C6", "phase": "L3" }
+      ],
+      "circuits": [
+        { "id": 1, "circuit_code": "C1", "phase": "L1", "rated_amp": 16, "maintenance_status": "NORMAL" },
+        { "id": 2, "circuit_code": "C2", "phase": "L1", "rated_amp": 16, "maintenance_status": "NORMAL" },
+        { "id": 3, "circuit_code": "C3", "phase": "L2", "rated_amp": 16, "maintenance_status": "NORMAL" },
+        { "id": 4, "circuit_code": "C4", "phase": "L2", "rated_amp": 32, "maintenance_status": "NORMAL" },
+        { "id": 5, "circuit_code": "C5", "phase": "L3", "rated_amp": 16, "maintenance_status": "NORMAL" },
+        { "id": 6, "circuit_code": "C6", "phase": "L3", "rated_amp": 16, "maintenance_status": "NORMAL" }
+      ],
+      "phase_loads": [
+        { "phase": "L1", "total_watt": 2750, "load_amp": 12.5 },
+        { "phase": "L2", "total_watt": 2700, "load_amp": 12.27 },
+        { "phase": "L3", "total_watt": 3200, "load_amp": 14.55 }
+      ],
+      "total_watt": 8650,
+      "imbalance_ratio": 0.156
     }
   ],
   "cueScene": [

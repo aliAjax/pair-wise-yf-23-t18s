@@ -1,3 +1,3 @@
 export function TimelinePage() {
-  return <section>时间轴编排</section>;
+  return <main className="page"><section className="page-head"><h1>时间轴编排</h1></section></main>;
 }

@@ -1,3 +1,3 @@
 export function FixturesPage() {
-  return <section>灯具布置</section>;
+  return <main className="page"><section className="page-head"><h1>灯具布置</h1></section></main>;
 }

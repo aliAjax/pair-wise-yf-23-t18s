@@ -9,6 +9,8 @@ export const createDefaultFixture = (overrides: Partial<Fixture> = {}): Fixture 
   dmx_address: "dmx address 1" as never,
   channel_count: "channel count 1" as never,
   color_mode: "color mode 1" as never,
+  power_watt: 1000 as never,
+  circuit_id: null as never,
   ...overrides
 });
 

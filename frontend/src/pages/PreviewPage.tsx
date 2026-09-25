@@ -1,3 +1,3 @@
 export function PreviewPage() {
-  return <section>舞台预览</section>;
+  return <main className="page"><section className="page-head"><h1>舞台预览</h1></section></main>;
 }
